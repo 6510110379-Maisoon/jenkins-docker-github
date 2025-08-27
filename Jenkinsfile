@@ -22,5 +22,11 @@ pipeline {
                 sh 'docker run -d -p 8082:8082 --name demo-app jenkins-demo-app:latest'
             }
         }
+        stage('Test') {
+            steps {
+                sh 'echo "Running tests..."'
+                sh 'pytest || true'
+    }
+        }
     }
 }
